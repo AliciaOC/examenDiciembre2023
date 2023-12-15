@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 4 Alicia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*Escriba una función que, dada una fecha, la devuelva con el siguiente formato:
+   “<Día_de_la_semana>, <día_del_mes> de <mes> del año de nuestro señor de <año>”*/
+
+        let fecha = new Date();
+        console.log(formateoFecha(fecha));
+
+        function formateoFecha(date) {
+            //dia de la semana se sacaba con algo parecido a monthDay, era poco intuitivo
+            let dia = date.getDay();
+            let mes = date.getMonth() + 1;//los meses van del 0 a 11
+            let anio = date.getFullYear();
+            let mensaje = `${dia} de ${mes} del año de nuestro señor de ${anio}`;
+            return mensaje;
+        }
+
+    </script>
+</body>
+
+</html>

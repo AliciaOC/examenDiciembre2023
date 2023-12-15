@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 6 Alicia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+        /* Cree, haciendo uso de herencia y sobrecarga, las clases necesarias para modelar los
+puestos de trabajo de un informático y de un conserje. Deberá contener, al menos,
+información personal (nombre, apellidos, dirección, sueldo y tres tareas típicas que
+realice), deberá estar todo protegido de agresiones externas y contar con getters y
+setters. Escriba el código necesario para demostrar que funciona*/
+
+        class Trabajadores {
+            constructor(nombre, apellidos, direccion, sueldo) {
+                this._nombre = nombre;
+                this._apellidos = apellidos;
+                this._direccion = direccion;
+                this._sueldo = sueldo;
+            }
+
+            saluda() {
+                return "hola";
+            }
+            //getters
+            get nombre() {
+                return this._nombre;
+            }
+            get apellidos() {
+                return this._apellidos;
+            }
+            get direccion() {
+                return this._direccion;
+            }
+            get sueldo() {
+                return this._sueldo;
+            }
+
+
+            //setters
+            setNombre(nombre) {
+                this._nombre = nombre;
+            }
+            setApellidos(apellidos) {
+                this._apellidos = apellidos;
+            }
+            setDireccion(direccion) {
+                this._direccion = direccion;
+            }
+            setSueldo(sueldo) {
+                this._sueldo = sueldo;
+            }
+
+        }
+
+        class Informatico extends Trabajadores {
+            constructor(nombre, apellidos, direccion, sueldo, puesto, tarea1, tarea2, tarea3) {
+                super(nombre, apellidos, direccion, sueldo);
+                this._puesto = puesto;
+                this._tarea1 = tarea1;
+                this._tarea2 = tarea2;
+                this._tarea3 = tarea3;
+            }
+            saluda() {
+                return "dice hola y después vuelve a programar el examen";
+            }
+            //getters
+            get sueldo() {
+                return this._sueldo;
+            }
+            get puesto() {
+                return this._puesto;
+            }
+            get tarea1() {
+                return this._tarea1;
+            }
+            get tarea2() {
+                return this._tarea2;
+            }
+            get tarea3() {
+                return this._tarea3;
+            }
+            //setters
+            setPuesto(puesto) {
+                this._puesto = puesto;
+            }
+            setTarea1(tarea1) {
+                this._tarea1 = tarea1;
+            }
+            setTarea2(tarea2) {
+                this._tarea2 = tarea2;
+            }
+            setTarea3(tarea3) {
+                this._tarea3 = tarea3;
+            }
+        }
+
+        class Conserje extends Trabajadores {
+            constructor(nombre, apellidos, direccion, sueldo, puesto, tarea1, tarea2, tarea3) {
+                super(nombre, apellidos, direccion, sueldo);
+                this._puesto = puesto;
+                this._tarea1 = tarea1;
+                this._tarea2 = tarea2;
+                this._tarea3 = tarea3;
+            }
+            //getters
+            get puesto() {
+                return this._puesto;
+            }
+            get tarea1() {
+                return this._tarea1;
+            }
+            get tarea2() {
+                return this._tarea2;
+            }
+            get tarea3() {
+                return this._tarea3;
+            }
+            //setters
+            setPuesto(puesto) {
+                this.puesto = puesto;
+            }
+            setTarea1(tarea1) {
+                this._tarea1 = tarea1;
+            }
+            setTarea2(tarea2) {
+                this._tarea2 = tarea2;
+            }
+            setTarea3(tarea3) {
+                this._tarea3 = tarea3;
+            }
+        }
+
+        let trabajadora = new Trabajadores("alicia", "ortega castro", "calle periodistas", 600);
+        let informatica = new Informatico("alicia", "ortega castro", "ies francisco ayala", 0, "estudiante", "desarrollo entorno cliente", "diseño de interfaces", "desarrollo entorno cliente");
+        let conserje = new Conserje("alicia", "ortega castro", "ies francisco ayala", 0, "estudiante", "entrar en mi horario", "no ser un desastre", "no mover mucho las mesas");
+
+        console.log(trabajadora);
+        console.log(`El nombre de la trabajadora es ${trabajadora.nombre}`);
+        console.log(informatica);
+        //aqui muestro que la herencia funciona
+        informatica.setSueldo(1200);
+        console.log(`El sueldo de la informatica tras la actualizacion es ${informatica.sueldo}`);
+        //y aquí que sobreescribir el metodo saluda funciona
+        console.log(trabajadora.saluda());
+        console.log(informatica.saluda());
+    </script>
+</body>
+
+</html>

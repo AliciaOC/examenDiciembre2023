@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 2 Alicia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*. Escriba el código necesario para hacer lo siguiente (2,5 puntos):
+ a. Crear una matriz de 50 números aleatorios entre el 1 y el que el usuario meta
+ por teclado
+ b. Separar la matriz anterior en dos matrices, una de números pares y otras de
+ impares
+ c. Sumarle un número aleatorio entre 1 y 10 (el mismo) a todos los elementos de
+ cada matriz.
+ d. Devolver, la siguiente información:
+ i. La suma de todos los elementos de cada matriz
+ ii. El número mayor y menor de cada matriz*/
+
+        //comienzo apratado A
+        let numMax;
+        do {
+            numMax = prompt("Introduce el valor máximo de la matriz de números aleatorios");
+        } while (isNaN(numMax) || numMax == false);
+
+        let matriz50 = [];
+        for (let i = 0; i < 50; i++) {
+            matriz50[i] = Math.floor(Math.random() * numMax + 1);
+        }
+        console.log(matriz50);
+        //fin apartado A
+
+        //Comienzo apartado B
+        let matrizPares = [];
+        let matrizImpares = [];
+        for (let numero of matriz50) {
+            if (numero % 2 == 0) {
+                matrizPares.push(numero);
+            } else {
+                matrizImpares.push(numero);
+            }
+        }
+        console.log(matrizPares);
+        console.log(matrizImpares);
+        //Fin apartado B
+
+        //Comienzo aparatado C
+        let aleatorio = Math.floor(Math.random() * 10 + 1);
+
+        console.log(`este es el numero aleatorio que se va a sumar: ${aleatorio}`);
+        matrizPares = matrizPares.map((numero) => numero + aleatorio);
+        matrizImpares = matrizImpares.map(numero => numero + aleatorio);
+
+        console.log(matrizPares);
+        console.log(matrizImpares);
+        //Fin apartado C
+
+        //Comienzo apartado D
+        //primero busco el mayor y el menor de cada matriz
+        let ordenar = (a, b) => a - b;
+        matrizPares.sort(ordenar);
+        matrizImpares.sort(ordenar);
+
+        //menores
+        let menorPar = matrizPares[0];
+        let menorImpar = matrizImpares[0];
+        console.log(`Los numeros menores de ambas matrices son ${menorPar} y ${menorImpar}`);
+        //mayores
+        let mayorPar = matrizPares[matrizPares.length - 1];
+        let mayorImpar = matrizImpares[matrizImpares.length - 1];
+        console.log(`Los numeros mayores de ambas matrices son ${mayorPar} y ${mayorImpar}`);
+
+        //ahora obtengo las sumas de todos los elementos
+        let resultadoSumaPares = matrizPares.reduce((suma, numeroActual) => suma + numeroActual);
+        let resultadosumaImpares = matrizImpares.reduce((suma, numeroActual) => suma + numeroActual);
+
+        console.log(`Las sumas de todos los valores de las matrices son: ${resultadoSumaPares} para los pares y ${resultadosumaImpares} para los impares`);
+
+        //Fin apartado D y del ejercicio
+    </script>
+</body>
+
+</html>

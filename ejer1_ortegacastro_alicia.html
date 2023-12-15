@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ejercicio 1 Alicia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+        let filas = "";
+        do {
+            filas = prompt("Inserte el número de filas del triángulo");
+        } while (isNaN(filas) || filas == false);//con estas condiciones controlo que sea un numero que no sea 0, que no sea null o undefined
+
+        for (let i = 1; i <= filas; i++) {
+            let relleno = "";
+            for (let j = 0; j < i; j++) {
+                relleno = relleno + "*";
+            }
+            console.log(relleno);
+        }
+
+    </script>
+</body>
+
+</html>

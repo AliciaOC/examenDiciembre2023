@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 5 Alicia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*Cifre una cadena, pedida al usuario por teclado, mediante un algoritmo que sustituya
+    cada letra de la cadena original por la que ocupe una posición aleatoria (una vez
+    calculada, cada letra original siempre se sustituye por la misma). Devuelva la cadena
+    original, la cifrada y la cadena usada para cifrar (2 puntos)
+    */
+        let cadenaOriginal = "";
+        while (cadenaOriginal == false || cadenaOriginal.length < 2 || cadenaOriginal.length > 10) {
+            cadenaOriginal = prompt("Introduzca una cadena que tenga entre 2 y 10 dígitos");
+        }
+        let cadenaCifrada = "";
+        let cadenaCodigo = "abcdefghij";
+        for (let i = 0; i < cadenaOriginal.length; i++) {
+            let posicionAleatoria = Math.floor(Math.random() * cadenaOriginal.length);//De 0 a el numero de caracteres -1
+            cadenaCifrada += cadenaCodigo[posicionAleatoria];
+        }
+        console.log(cadenaCifrada);
+        console.log(cadenaOriginal);
+
+    </script>
+</body>
+
+</html>

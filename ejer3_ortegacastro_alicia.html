@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 3 Alicia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*Escriba el código necesario para almacenar la siguiente información sobre un usuario:
+        nombre, edad, calle, número, provincia, profesión y sueldo. Cree los siguientes
+        métodos con formato de flecha: mudarse, cambiarTrabajo e inicialice el objeto. Copie
+        dicho objeto en otro de forma que, al cambiarle los datos a este segundo, el primero
+        no se vea afectado. */
+
+        class Usuario {
+            constructor(nombre, edad, calle, numero, provincia, profesion, sueldo) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.calle = calle;
+                this.numero = numero;
+                this.provincia = provincia;
+                this.profesion = profesion;
+                this.sueldo = sueldo;
+            }
+
+            mudarse = (calle, numero, provincia) => (
+                this.calle = calle,
+                this.numero = numero,
+                this.provincia = provincia
+            );
+
+            cambiarTrabajo = (profesion, sueldo) => (
+                this.profesion = profesion,
+                this.sueldo = sueldo
+            );
+        }
+
+        let Alicia = new Usuario('Alicia', 28, 'Periodistas', '2', 'Granada', 'auxiliar administrativa', 600);
+        //let Alicia2=Object.clone  --->Era algo similar a clonar
+        let alicia2 = Object.values(Alicia); //funciona, pero evidentemente no del todo pues he perdido las keys.
+        alicia2.cumpleaños = "febrero";
+        console.log(alicia2);
+        console.log(Alicia);
+    </script>
+</body>
+
+</html>
