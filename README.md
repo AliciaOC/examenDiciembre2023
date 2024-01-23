@@ -1,0 +1,1 @@
+Examen de desarrollo web en entorno cliente, sobre JavaScript. Este fue mi desempeño con el tiempo limitado que teníamos. En los comentarios de cada fichero explico el funcionamiento o complicaciones encontradas 
